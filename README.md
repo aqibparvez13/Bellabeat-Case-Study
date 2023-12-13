@@ -33,10 +33,15 @@ Analyze FitBit data to understand user behavior and collect valuable insights fo
 **1.3 Deliverables**
 
 •	A clear summary of the business task
+
 •	A description of all data sources used
+
 •	Documentation of any cleaning or manipulation of data
+
 •	A summary of my analysis
+
 •	Supporting visualizations and key findings
+
 •	My top high-level content recommendations based on the analysis
 
 **1.4 Key Stakeholders**
@@ -269,16 +274,16 @@ After extracting important insights from a thorough examination of the data, the
 
 In this section, we will display multiple visualizations intended to identify corelation between the data and other significant factors that are of interest to Bellabeat.
 
-**5.0 Total Steps vs Calories Burned **
+**5.0 Total Steps vs Calories Burned**
 
 To examine the correlation between the two variables, I chose for a scatterplot to visualize the results.
 
 ```r
-ggplot(data = activity) +
-  geom_smooth(mapping = aes(x = TotalSteps, y = Calories)) +
-  geom_point(mapping = aes(x = TotalSteps, y = Calories, color = Calories)) +
-  labs(title = "Total Steps vs Calories Burned", x = "Steps") +
-  scale_color_gradient(low = "yellow", high = "red")
+ggplot(data = activity, mapping=aes(x = Calories, y = TotalDistance, color = Calories)) +
+  geom_point() +
+  geom_smooth(method = "loess", span = 0.5, se = FALSE) +
+  labs(title = "Total Distance Travelled vs Calories Burnt", x = "Calories Burnt") +
+  scale_color_gradient(low = "green", high = "red")
 ```
 
 <img width="929" alt="Screenshot 2023-12-13 at 2 42 21 AM" src="https://github.com/aqibparvez13/Bellabeat-Case-Study/assets/153671648/9e2b1b33-9932-4ab7-9f71-f496737c48ba">
